@@ -1,0 +1,23 @@
+{% load staticfiles %}
+
+body{
+  background-image: url("images/clouds.jpg");
+  margin: 50px 100px 35px;
+}
+
+h1, h4{
+  font-family: "Lucida Console", Times, serif;
+  text-align: center;
+  color: white
+}
+
+p{
+  text-align:center;
+  font-weight:bold;
+  font-style:italic;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.modebar{
+      display: none !important;
+}

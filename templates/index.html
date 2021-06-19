@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{% static "map_o3.js" %}" onload="loadOMap();"></script>
+    <script src="{% static "map_co.js" %}" onload="loadCMap();"></script>
+    <script src="{% static "graph_pie.js" %}" onload="loadPie();"></script>
+    <style>
+        body, div{
+            height: 100vh;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+    <title>Air Quality Information</title>
+    <link rel='stylesheet' href='{% static 'styles.css' %}' type='text/css'>
+
+</head>
+
+<body>
+  <h1 style="text-align: center;font-size: 48;">Real-Time Monitoring of U.S Air Quality</h1>
+  <hr>
+  <script type="text/javascript">
+  function SwapDivsWithClick(div1,div2)
+  {
+     d1 = document.getElementById(div1);
+     d2 = document.getElementById(div2);
+     if( d2.style.display == "none" )
+     {
+        d1.style.display = "none";
+        d2.style.display = "block";
+     }
+     else
+     {
+        d1.style.display = "block";
+        d2.style.display = "none";
+     }
+  }
+  </script>
+<br>
+<div id="info1" style="display:block;">
+  <button onclick="javascript:SwapDivsWithClick('info1','info2')" type="button" style="float:right; margin: 0px 220px">Click to Switch View Between CO and O3</button>
+</div>
+<div id="info2" style="display:none;width: 173.3vh;">
+  <button onclick="javascript:SwapDivsWithClick('info1','info2')" type="button" style="float:right; margin: 0px 220px">Click to Switch View Between CO and O3</button>
+</div>
+
+<br>
+<br>
+
+<div id="info3"style="float:right;"></div>
+
+<div style="float:left; padding: 100px 20px;">
+  <script>
+    var i;
+    for (i = 0; i < 10; i++){
+      document.write("<br>")
+    }
+  </script>
+  <h4>
+    The following pie graph shows the average of each pollutant present in the Air Quality Index.
+  </h4>
+  <h4>
+    Click on each individual legend item to turn it on of off.
+  </h4>
+</div>
+
+</body>
+</html>
